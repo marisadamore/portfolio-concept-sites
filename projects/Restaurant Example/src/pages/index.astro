@@ -41,13 +41,19 @@ const offerings = [
 
     <section class="offerings" id="eat">
       <div class="section-head"><p class="kicker">One stop. Three cravings.</p><h2>Everything good<br />under one roof.</h2></div>
-      <div class="cards">
-        {offerings.map((item) => (
-          <article>
-            <div class="card-photo"><img src={item.image} alt="" loading="lazy" /></div>
-            <span>{item.number}</span><h3>{item.title}</h3><p>{item.text}</p><a href="/menu" aria-label={`Explore ${item.title}`}>Explore <b>↗</b></a>
-          </article>
-        ))}
+      <div class="food-slider" data-slider aria-label="Coffee, pastries, and brunch highlights">
+        <div class="slides">
+          {offerings.map((item, index) => (
+            <article class={`food-slide ${index === 0 ? 'is-active' : ''}`} data-slide aria-hidden={index === 0 ? 'false' : 'true'}>
+              <img src={item.image} alt={`${item.title} at Tide and Toast`} loading={index === 0 ? 'eager' : 'lazy'} />
+              <div class="slide-shade"></div>
+              <div class="slide-copy"><span>{item.number}</span><div><h3>{item.title}</h3><p>{item.text}</p></div><a href="/menu" aria-label={`Explore ${item.title}`}>Explore menu ↗</a></div>
+            </article>
+          ))}
+        </div>
+        <div class="slider-controls" aria-label="Slideshow controls">
+          {offerings.map((item, index) => <button class={index === 0 ? 'is-active' : ''} type="button" data-dot={index} aria-label={`Show ${item.title}`} aria-current={index === 0 ? 'true' : 'false'}><span></span>{item.title}</button>)}
+        </div>
       </div>
     </section>
 
@@ -73,5 +79,29 @@ const offerings = [
     </section>
   </main>
   <footer><a class="logo" href="/"><span class="wave" aria-hidden="true"><i></i><i></i><i></i></span><span><b>Tide</b><small>& Toast</small></span></a><p>COFFEE · PASTRIES · BRUNCH</p><small>© 2026 Tide & Toast</small></footer>
+  <script is:inline>
+    (() => {
+      const slider = document.querySelector('[data-slider]');
+      if (!slider) return;
+      const slides = [...slider.querySelectorAll('[data-slide]')];
+      const dots = [...slider.querySelectorAll('[data-dot]')];
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let current = 0;
+      let timer;
+      const show = (next) => {
+        current = next;
+        slides.forEach((slide, i) => { slide.classList.toggle('is-active', i === current); slide.setAttribute('aria-hidden', i === current ? 'false' : 'true'); });
+        dots.forEach((dot, i) => { dot.classList.toggle('is-active', i === current); dot.setAttribute('aria-current', i === current ? 'true' : 'false'); });
+      };
+      const play = () => { if (!reduced) timer = window.setInterval(() => show((current + 1) % slides.length), 4500); };
+      const restart = () => { window.clearInterval(timer); play(); };
+      dots.forEach((dot, i) => dot.addEventListener('click', () => { show(i); restart(); }));
+      slider.addEventListener('mouseenter', () => window.clearInterval(timer));
+      slider.addEventListener('mouseleave', play);
+      slider.addEventListener('focusin', () => window.clearInterval(timer));
+      slider.addEventListener('focusout', play);
+      play();
+    })();
+  </script>
 </body>
 </html>
