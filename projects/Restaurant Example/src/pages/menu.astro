@@ -1,0 +1,13 @@
+---
+import SitePage from '../layouts/SitePage.astro';
+const groups=[
+ {title:'Pastries',note:'Baked here every morning',items:[['Blueberry lemon croissant','lemon cream · blueberry preserve','$5'],['Almond morning bun','brown sugar · toasted almond · sea salt','$4'],['Guava cheese danish','Florida guava · whipped cream cheese','$5'],['Chocolate sea salt cookie','dark chocolate · flaky salt','$3']]},
+ {title:'Brunch',note:'Served daily until 3',items:[['Coastline breakfast sandwich','egg · cheddar · avocado · house biscuit','$9'],['Lemon ricotta pancakes','blueberry · maple · vanilla butter','$10'],['Harbor grain bowl','crispy potato · greens · jammy egg · tahini','$11'],['Smoked salmon toast','herb cheese · cucumber · capers','$12']]},
+ {title:'Coffee & Sips',note:'Hot or iced',items:[['Sea salt honey latte','double espresso · local honey · milk','$4'],['Coconut cold brew','house cold brew · coconut cream','$4'],['Vanilla bean matcha','ceremonial matcha · vanilla · milk','$5'],['Drip coffee','daily single-origin roast','$3']]}
+];
+---
+<SitePage title="Gluten-Free Menu | Tide & Toast St. Augustine" description="Explore gluten-free pastries, brunch plates, coffee, and specialty drinks at Tide & Toast in St. Augustine, Florida." active="menu">
+  <section class="page-hero menu-page-hero"><p class="kicker">100% gluten-free · 100% delicious</p><h1>The menu</h1><p>Fresh pastries, beautiful coffee, and coastal brunch—with prices made for every day.</p></section>
+  <section class="full-menu">{groups.map(group=><article><header><div><p class="kicker">{group.note}</p><h2>{group.title}</h2></div></header><div>{group.items.map(item=><div class="dish"><span><strong>{item[0]}</strong><small>{item[1]}</small></span><b>{item[2]}</b></div>)}</div></article>)}</section>
+  <section class="diet-note"><b>GF</b><div><h2>One kitchen. No gluten.</h2><p>Our entire menu is prepared in a dedicated gluten-free kitchen, so you can order with confidence.</p></div></section>
+</SitePage>

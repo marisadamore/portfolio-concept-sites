@@ -1,0 +1,77 @@
+---
+import '../styles/global.css';
+
+const offerings = [
+  { number: '01', title: 'Coffee', text: 'House-roasted espresso, slow pours, matcha, and bright seasonal sips.', image: 'https://images.unsplash.com/photo-1511081692775-05d0f180a065?auto=format&fit=crop&w=900&q=85' },
+  { number: '02', title: 'Pastries', text: 'Croissants, fruit danishes, morning buns, and cakes—baked here, always gluten-free.', image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=85' },
+  { number: '03', title: 'Brunch', text: 'Colorful, coastal plates from first coffee through the lazy afternoon.', image: 'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=85' },
+];
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="description" content="Tide & Toast is a gluten-free coffee shop, pastry bakery, and brunch restaurant in St. Augustine, Florida. Lux on a budget, every day." />
+  <title>Tide & Toast | Gluten-Free Coffee, Pastries & Brunch in St. Augustine</title>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/" aria-label="Tide and Toast home">
+      <span class="wave" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span><b>Tide</b><small>& Toast</small></span>
+    </a>
+    <nav aria-label="Main navigation"><a class="active" href="/">Home</a><a href="/menu">Menu</a><a href="/about">About</a><a href="/contact">Contact</a></nav>
+    <a class="order" href="/menu">Order online</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-photo"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=1600&q=90" alt="Fresh golden pastries in the bakery" /></div>
+      <div class="hero-copy">
+        <div class="seal"><span>100%</span><small>gluten<br />free</small></div>
+        <p class="kicker">St. Augustine · Florida</p>
+        <h1><span class="brand-heading">Tide & Toast</span><span class="tagline-heading">Lux on a budget.</span><em>Every day.</em></h1>
+        <p class="intro">Flaky gluten-free pastries. Specialty coffee. Brunch worth lingering over. Everything you want from your favorite neighborhood café, all in one beautiful place.</p>
+        <a class="arrow-link" href="/menu">See what’s cooking <span>→</span></a>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="Cafe offerings"><span>Coffee all day</span><b>≈</b><span>Fresh pastries</span><b>≈</b><span>Brunch plates</span><b>≈</b><span>Always gluten-free</span></section>
+
+    <section class="offerings" id="eat">
+      <div class="section-head"><p class="kicker">One stop. Three cravings.</p><h2>Everything good<br />under one roof.</h2></div>
+      <div class="cards">
+        {offerings.map((item) => (
+          <article>
+            <div class="card-photo"><img src={item.image} alt="" loading="lazy" /></div>
+            <span>{item.number}</span><h3>{item.title}</h3><p>{item.text}</p><a href="/menu" aria-label={`Explore ${item.title}`}>Explore <b>↗</b></a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="menu" id="menu">
+      <div class="menu-title"><p class="kicker">A little taste</p><h2>Brunch by<br />the beach.</h2><p>Good ingredients, easygoing plates, no compromises.</p></div>
+      <div class="menu-list">
+        <div><strong>Blueberry lemon croissant</strong><span>lemon cream, blueberry preserve, vanilla sugar</span><b>$5</b></div>
+        <div><strong>Almond morning bun</strong><span>brown sugar, toasted almond, sea salt</span><b>$4</b></div>
+        <div><strong>Coastline breakfast sandwich</strong><span>egg, cheddar, avocado, house biscuit</span><b>$9</b></div>
+        <div><strong>Sea salt honey latte</strong><span>double espresso, local honey, milk</span><b>$4</b></div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="about-copy"><p class="kicker">Gluten-free, full-hearted</p><h2>No gluten.<br /><em>No missing out.</em></h2><p>Our kitchen is completely gluten-free, so everyone at the table can order freely. We make our own flour blends, bake in small batches, and believe the best food never needs an apology.</p><a class="arrow-link light" href="/about">Our full story <span>→</span></a></div>
+      <div class="about-photo"><img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1400&q=90" alt="Friends enjoying brunch in a sunny café" loading="lazy" /><div class="photo-note">Made for everyone<br />at the table.</div></div>
+    </section>
+
+    <section class="visit" id="visit">
+      <div><p class="kicker">See you seaside</p><h2>Come hungry.<br />Stay awhile.</h2></div>
+      <div class="details"><p><small>Find us</small>28 Harbor Lane<br />St. Augustine, FL</p><p><small>Open daily</small>Weekdays 7–4<br />Weekends 8–4</p></div>
+      <a class="round" href="https://maps.google.com" aria-label="Get directions">↗</a>
+    </section>
+  </main>
+  <footer><a class="logo" href="/"><span class="wave" aria-hidden="true"><i></i><i></i><i></i></span><span><b>Tide</b><small>& Toast</small></span></a><p>COFFEE · PASTRIES · BRUNCH</p><small>© 2026 Tide & Toast</small></footer>
+</body>
+</html>

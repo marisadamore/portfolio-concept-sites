@@ -8,7 +8,13 @@ importers:
 
   .: {}
 
-  projects/lily-smith:
+  projects/Personal Brand Example:
+    dependencies:
+      astro:
+        specifier: ^7.2.0
+        version: 7.2.0(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)
+
+  projects/Restaurant Example:
     dependencies:
       astro:
         specifier: ^7.2.0
