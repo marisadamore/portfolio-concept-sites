@@ -1,0 +1,5 @@
+---
+const { active = '' } = Astro.props;
+const links=[['About','/about'],['Book','/book'],['Coaching','/coaching'],['Work with Lily','/work-with-lily'],['Resources','/resources']];
+---
+<div class="demo-note">Concept website · Lily Smith is a fictional brand</div><header class="site-header shell"><a class="wordmark" href="/"><span class="lily-mark"><b></b><i></i></span><span>Lily <i>Smith</i></span></a><nav>{links.map(([name,url])=><a class={active===name?'active':''} href={url}>{name}</a>)}</nav><a class="small-cta" href="/coaching#intro">Let’s talk ↗</a></header>

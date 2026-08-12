@@ -1,0 +1,9 @@
+{
+  "name": "portfolio-concept-sites",
+  "private": true,
+  "packageManager": "pnpm@10.15.1",
+  "scripts": {
+    "dev:lily": "pnpm --filter lily-smith dev",
+    "build:lily": "pnpm --filter lily-smith build"
+  }
+}

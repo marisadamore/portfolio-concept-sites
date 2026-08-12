@@ -1,0 +1,4 @@
+---
+import Page from '../layouts/Page.astro'; const items=[['Free guide','The Quietly Visible Planner'],['Workbook','$18 · Your Author Brand Story'],['Checklist','Ready to Self-Publish'],['Mini course','$49 · Social Strategy for Real Life']];
+---
+<Page title="Resources" active="Resources"><section class="page-hero shell"><p class="eyebrow">The resource library</p><h1>Start where<br/><em>you are.</em></h1><p class="lede">Simple tools for authors, speakers, and thoughtful experts building a visible body of work.</p></section><section class="resource-library shell">{items.map((r,i)=><article><div class={`resource-art card-${i%3+1}`}><span>{r[1][0]}</span></div><p class="eyebrow">{r[0]}</p><h2>{r[1]}</h2><button disabled>Demo resource ↗</button></article>)}</section></Page>
