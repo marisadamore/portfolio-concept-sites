@@ -1,0 +1,4 @@
+interface:
+  display_name: "Accessibility QA Agent"
+  short_description: "Test web accessibility with evidence and limits"
+  default_prompt: "Use $accessibility-qa-agent to test this website and produce an evidence-based accessibility QA report."

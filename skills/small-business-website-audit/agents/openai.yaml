@@ -1,0 +1,4 @@
+interface:
+  display_name: "Small Business Website Audit"
+  short_description: "Audit websites for clarity, access, SEO, and trust"
+  default_prompt: "Use $small-business-website-audit to audit this small-business website and produce a prioritized evidence-based report."
