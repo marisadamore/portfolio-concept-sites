@@ -3,7 +3,7 @@
   "private": true,
   "packageManager": "pnpm@10.15.1",
   "scripts": {
-    "dev:lily": "pnpm --filter lily-smith dev",
-    "build:lily": "pnpm --filter lily-smith build"
+    "dev:tide": "pnpm --filter tide-and-toast dev",
+    "build:tide": "pnpm --filter tide-and-toast build"
   }
 }

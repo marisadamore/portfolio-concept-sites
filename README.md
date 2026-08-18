@@ -4,6 +4,5 @@ Fictional websites created as front-end portfolio demonstrations.
 
 ## Projects
 
-- Lily Smith — lavender personal-brand website
-- Restaurant concept — planned
-- Event landing page — planned
+- Restaurant Example — Tide & Toast, a restaurant concept site
+- Performance Coaching Example — Revive & Thrive Performance, a men's performance coaching concept site
